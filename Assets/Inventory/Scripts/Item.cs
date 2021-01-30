@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]                         //    Our Representation of an InventoryItem
+[System.Serializable]
 public class Item : MonoBehaviour
 {
     public string itemName = "New Item";      //    What the item will be called in the inventory
