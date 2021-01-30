@@ -71,17 +71,38 @@ public class InventoryMngr : MonoBehaviour
 
                 if (i == (receipt.neededItems.itemList.Count - 1))
                 {
-                    GameObject newItem;
-                    newItem = (GameObject)Instantiate(receipt.receiptResultPrefab);
-                    newItem.transform.position = transform.position;
+                    if (receipt.receiptResultPrefab != null)
+                    {
+                        GameObject newItem;
+                        newItem = (GameObject)Instantiate(receipt.receiptResultPrefab);
+                        newItem.transform.position = transform.position;
+                    }
 
                     itemsToCombine.itemList.ForEach(item =>
                     {
+                        if(item.isUnique)
+                        {
+                            if(item.GetComponent<Radio>() != null)
+                            {
+                                Debug.Log("recarregue");
+                                item.GetComponent<Radio>().AddCharge(10);
+                            }
+                        }
+
                         if (item.destroyOnUse)
                         {
+                            if (item == heldItem)
+                            {
+                                Destroy(heldItem.gameObject);
+                                uiInventoryInstance.DeactivateHeldItem();
+                            }
+
                             var nearbyIndex = nearbyItems.itemList.FindIndex(nearbyItem => nearbyItem.itemName == item.itemName);
-                            Destroy(nearbyItems.itemList[nearbyIndex]);
-                            Destroy(item.gameObject);
+                            if (nearbyIndex != -1)
+                            {
+                                Destroy(nearbyItems.itemList[nearbyIndex]);
+                                Destroy(item.gameObject);
+                            }
                         }
                     });
 

@@ -144,10 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: New Item A
-  itemIcon: {fileID: 10912, guid: 0000000000000000f000000000000000, type: 0}
+  itemIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   itemObject: {fileID: 7060051602792046561}
   isUnique: 0
   isQuestItem: 0
-  isStackable: 0
   destroyOnUse: 1
-  encumbranceValue: 0

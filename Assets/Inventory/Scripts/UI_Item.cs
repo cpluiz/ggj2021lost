@@ -84,11 +84,14 @@ public class UI_Item : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerCli
                 }
                 else
                 {
-                    ItemList newList = ItemList.CreateTempList();
-                    newList.itemList.Add(uiItem.item);
-                    newList.itemList.Add(this.item);
+                    if (uiItem.item != null && this.item != null)
+                    {
+                        ItemList newList = ItemList.CreateTempList();
+                        newList.itemList.Add(uiItem.item);
+                        newList.itemList.Add(this.item);
 
-                    CombineItems(newList);
+                        CombineItems(newList);
+                    }
                 }
                 break;
             }

@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6128af25857bb9644a8c4150d8df8963, type: 3}
-  m_Name: ReceiptA
+  m_Script: {fileID: 0}
+  m_Name: RechargeRadio
   m_EditorClassIdentifier: Assembly-CSharp::Receipt
-  neededItems: {fileID: 11400000, guid: 49dba034f7b01c848aef16f33cf6e5d0, type: 2}
-  receiptResultPrefab: {fileID: 5011579541366586945, guid: 8059d61a9e871204d97b2361d605d5ae,
-    type: 3}
+  neededItems: {fileID: 11400000, guid: dbbc6b780e4f1db47b61c257c8b03636, type: 2}
+  receiptResultPrefab: {fileID: 0}

@@ -9,21 +9,16 @@ public class Item : MonoBehaviour
     public Sprite itemIcon = null;         //    What the item will look like in the inventory
     public Rigidbody2D itemObject = null;       //    Optional slot for a PreFab to instantiate when discarding
     public bool isUnique = false;             //    Optional checkbox to indicate that there should only be one of these items per game
-    public bool isQuestItem = false;          //    Examples of additional information that could be held in InventoryItem
-    public bool isStackable = false;          //    Examples of additional information that could be held in InventoryItem
-    public bool destroyOnUse = false;         //    Examples of additional information that could be held in InventoryItem
-    public float encumbranceValue = 0;        //    Examples of additional information that could be held in InventoryItem  !!!
-
+    public bool isQuestItem = false;
+    public bool destroyOnUse = false;
 
     public void CopyItem(Item item)
     {
         itemName = item.itemName;
         itemIcon = item.itemIcon;
         itemObject = item.itemObject;
-        isUnique = false;
+        isUnique = item.isUnique;
         isQuestItem = item.isQuestItem;
-        isStackable = item.isStackable;
         destroyOnUse = item.destroyOnUse;
-        encumbranceValue = item.encumbranceValue;
     }
 }

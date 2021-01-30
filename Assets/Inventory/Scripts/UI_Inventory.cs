@@ -13,8 +13,6 @@ public class UI_Inventory : MonoBehaviour
     Action<Item> CatchItem;
     Func<ItemList, bool> CombineItems;
 
-    static UI_Inventory _instance;
-    
     public void SetCombineItems(Func<ItemList, bool> func)
     {
         CombineItems = func;
@@ -55,6 +53,11 @@ public class UI_Inventory : MonoBehaviour
             playerHoldingUI.GetComponent<UI_Item>().DeactivateItem();
             IncludeItem(oldItem);
         }
+    }
+
+    public void DeactivateHeldItem()
+    {
+        playerHoldingUI.GetComponent<UI_Item>().DeactivateItem();
     }
 
     public void OnCatchItem(Item newItem, Item oldItem = null)
