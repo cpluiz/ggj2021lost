@@ -38,6 +38,7 @@ public class UI_Inventory : MonoBehaviour
 
     public void ExcludeItem(Item oldItem)
     {
+        Debug.Log("excluding");
         int index = itemsUi.FindIndex(itemUI => itemUI.GetComponent<UI_Item>().GetItem().itemName == oldItem.itemName);
         if (index != -1)
         {

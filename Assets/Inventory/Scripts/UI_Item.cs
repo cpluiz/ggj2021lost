@@ -13,7 +13,6 @@ public class UI_Item : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerCli
     Func<ItemList, bool> CombineItems;
     PointerEventData pointerEventData;
     GraphicRaycaster raycaster;
-    Transform originalParentTransform;
 
     public void SetCatchItemFunc(Action<Item> func)
     { CatchItem = func; }
@@ -56,7 +55,7 @@ public class UI_Item : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerCli
         var canvas = transform.GetComponentInParent<Canvas>();
         if (canvas != null)
         {
-            transform.SetParent(canvas.transform);
+            itemImage.transform.SetParent(canvas.transform);
         }
 
         itemImage.transform.position = Input.mousePosition;
@@ -72,7 +71,7 @@ public class UI_Item : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerCli
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        transform.SetParent(originalParentTransform);
+        itemImage.transform.SetParent(transform);
 
         foreach (RaycastResult result in GetMouseHitting())
         {
@@ -118,7 +117,5 @@ public class UI_Item : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerCli
         pointerEventData = new PointerEventData(GetComponent<EventSystem>());
         //Raycast using the Graphics Raycaster and mouse click position
         raycaster = GetComponentInParent<GraphicRaycaster>();
-
-        originalParentTransform = transform.parent.transform;
     }
 }

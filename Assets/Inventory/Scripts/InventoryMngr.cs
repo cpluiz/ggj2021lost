@@ -155,6 +155,7 @@ public class InventoryMngr : MonoBehaviour
     {
         nearbyItems.itemList.Add(item);
         uiInventoryInstance.ReleaseItem(item);
+        heldItem.transform.SetParent(null);
         heldItem = null;
     }
 
@@ -176,6 +177,8 @@ public class InventoryMngr : MonoBehaviour
                 nearbyItems.itemList.Add(heldItem);
             }
             heldItem = nearbyItems.itemList[itemIndex];
+            heldItem.transform.SetParent(transform);
+
             nearbyItems.itemList.RemoveAt(itemIndex);
             uiInventoryInstance.OnCatchItem(heldItem, oldItem);
         }
