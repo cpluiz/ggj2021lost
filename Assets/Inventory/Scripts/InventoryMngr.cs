@@ -12,7 +12,11 @@ public class InventoryMngr : MonoBehaviour
 
     Item rightHeldItem;
     Item leftHeldItem;
-    
+    [SerializeField]
+    Radio radio;
+    [SerializeField]
+    Item lamp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,29 +26,26 @@ public class InventoryMngr : MonoBehaviour
         uiInventory.SetCatchItemFunc(CatchItem);
         uiInventory.SetCombineItems(CombineItems);
 
-        Radio radio;
-
-        //Not holding radio on start
-        if (rightHeldItem == null && leftHeldItem == null)
+        if (rightHeldItem == null || leftHeldItem == null)
         {
-            foreach (var item in GameObject.FindGameObjectsWithTag("Item"))
+            if (radio == null)
             {
-                if (item.TryGetComponent<Radio>(out radio))
+                foreach (var item in GameObject.FindGameObjectsWithTag("Item"))
                 {
-                    radio.ShowHiddenItems(true);
-                    break;
+                    item.TryGetComponent<Radio>(out radio);
                 }
             }
+
+            if (radio != null)
+            {
+                CatchItem(radio);
+                radio.ShowHiddenItems(false);
+            }
+            if (lamp != null)
+            {
+                CatchItem(lamp);
+            }
         }
-        //Holding on right hand
-        else if (rightHeldItem.TryGetComponent<Radio>(out radio))
-            radio.ShowHiddenItems(false);
-        //Holding on left hand
-        else if (leftHeldItem.TryGetComponent<Radio>(out radio))
-            radio.ShowHiddenItems(false);
-        //Holding some item, but not the radio
-        else
-            radio.ShowHiddenItems(true);
     }
 
     // Update is called once per frame
