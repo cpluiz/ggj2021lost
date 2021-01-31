@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using RDG;
 using Pathfinding;
-using TMPro;
 using UnityEngine;
 
 public class SetPlayerTarget : MonoBehaviour{
@@ -17,7 +14,6 @@ public class SetPlayerTarget : MonoBehaviour{
     private InteractableTarget interactableObject;
 
     [SerializeField] private GameObject textArea;
-    [SerializeField] private TextMeshPro textToShow;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private Rigidbody2D playerBody;
 
@@ -57,6 +53,7 @@ public class SetPlayerTarget : MonoBehaviour{
         interactableObject = null;
         playerAnimator.SetBool("Walking", true);
         transform.localScale = new Vector3(Math.Sign(transform.position.x - targetPoint.position.x), 1, 1);
+        textArea.transform.localScale = transform.localScale;
         RaycastHit2D hit = Physics2D.Raycast(targetPoint.position, -Vector2.up, 0.05f);
         if (hit.collider != null){
             if (hit.transform.gameObject.GetComponent<InteractableTarget>()){
@@ -87,16 +84,9 @@ public class SetPlayerTarget : MonoBehaviour{
             playerAnimator.SetBool("Walking", false);
             if (interactableObject != null){
                 Vibration.Vibrate(100, 100);
-                textToShow.text = TextController.getString("TEXT_EXAMPLE_1");
                 textArea.SetActive(true);
                 interactableObject = null;
-                StartCoroutine(nameof(HideTextArea));
             }
         }
-    }
-
-    public IEnumerator HideTextArea(){
-        yield return new WaitForSeconds(5);
-        textArea.SetActive(false);
     }
 }

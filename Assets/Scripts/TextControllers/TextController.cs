@@ -10,7 +10,7 @@ public class TextController : MonoBehaviour{
     public static TextController instance{ get{ return _instance; } }
 
     [SerializeField] private Object languageFile;
-    [SerializeField] private Dictionary<string, string> textStrings;
+    [SerializeField] private Dictionary<string, TextStructure> textStrings;
     [SerializeField] private string languageId, loadedLanguage = "ptBR";
     [SerializeField] private bool languageChanged{ get{ return loadedLanguage != languageId; }}
 
@@ -29,15 +29,49 @@ public class TextController : MonoBehaviour{
 
     public void LoadLanguage(string languageCode){
         languageFile = Resources.Load("language/" + languageCode);
-        textStrings = JSON.ToObject<Dictionary<string,string>>(languageFile.ToString());
+        textStrings = JSON.ToObject<Dictionary<string,TextStructure>>(languageFile.ToString());
         loadedLanguage = languageCode;
     }
 
 
-    public static string getString(string stringId){
+    public static string GetString(string stringId){
         if(_instance.languageChanged) _instance.LoadLanguage(_instance.languageId);
-        string text = stringId;
-        _instance.textStrings.TryGetValue(stringId, out text);
-        return text;
+        TextStructure textStructure;
+        if(_instance.textStrings.TryGetValue(stringId, out textStructure))
+            return textStructure.text;
+        return stringId;
     }
+
+    public static string GetCharacterName(string stringId){
+        if(_instance.languageChanged) _instance.LoadLanguage(_instance.languageId);
+        TextStructure textStructure;
+        if(_instance.textStrings.TryGetValue(stringId, out textStructure))
+            return textStructure.characterName;
+        return stringId;
+    }
+    
+    public static string GetTargetType(string stringId){
+        if(_instance.languageChanged) _instance.LoadLanguage(_instance.languageId);
+        TextStructure textStructure;
+        if(_instance.textStrings.TryGetValue(stringId, out textStructure))
+            return textStructure.targetType;
+        return stringId;
+    }
+    
+    public static Color GetTextColor(string stringId){
+        if(_instance.languageChanged) _instance.LoadLanguage(_instance.languageId);
+        TextStructure textStructure;
+        Color color = Color.white;
+        if (_instance.textStrings.TryGetValue(stringId, out textStructure))
+            ColorUtility.TryParseHtmlString(textStructure.textHexColor, out color);
+        return color;
+    }
+    
+}
+
+public class TextStructure{
+    public string targetType;
+    public string characterName;
+    public string textHexColor;
+    public string text;
 }

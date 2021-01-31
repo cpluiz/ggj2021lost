@@ -1,4 +1,8 @@
 {
-  "TEXT_EXAMPLE_1" : "Interagiu com a placa",
-  "RADIO_FAKE_NEWS_1" : "Exemplo de texto 2"
+  "TEXT_EXAMPLE_1" : {
+    "targetType" : "radio",
+    "characterName" : "",
+    "textColor" : "#FFFFFF",
+    "text" : "Uma Fake News aleatória"
+  }
 }

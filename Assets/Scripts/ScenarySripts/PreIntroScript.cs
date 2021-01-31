@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PreIntroScript : MonoBehaviour{
     public AudioSource audioSource;
     public bool locutorHasTalked = false;
-    public AudioClip locutor, click;
+    public AudioClip locutor, click, staticEffect;
     public Button clickButton;
 
 
@@ -31,11 +31,18 @@ public class PreIntroScript : MonoBehaviour{
         SceneManager.LoadScene("MainMenu");
     }
 
+    private IEnumerator StaticAfterLocutor(){
+        audioSource.PlayOneShot(staticEffect);
+        yield return new WaitForSeconds(staticEffect.length + 0.5f);
+        audioSource.PlayOneShot(click);
+        yield return new WaitForSeconds(click.length + 0.5f);
+        clickButton.transform.gameObject.SetActive(true);
+    }
+
     private void LateUpdate(){
         if (!audioSource.isPlaying && audioSource.clip == locutor && !locutorHasTalked){
-            audioSource.PlayOneShot(click);
             locutorHasTalked = true;
-            clickButton.transform.gameObject.SetActive(true);
+            StartCoroutine(nameof(StaticAfterLocutor));
         }
     }
 

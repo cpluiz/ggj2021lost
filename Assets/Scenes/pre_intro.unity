@@ -363,6 +363,7 @@ MonoBehaviour:
   locutorHasTalked: 0
   locutor: {fileID: 8300000, guid: e57e5e735515d4047a698ddd3cd4b933, type: 3}
   click: {fileID: 8300000, guid: c745aafbac6f4024590a4736f83562bd, type: 3}
+  staticEffect: {fileID: 8300000, guid: e61ae8c1ab3761542ab9c6f4387f503a, type: 3}
   clickButton: {fileID: 1752790375}
 --- !u!82 &1451301721
 AudioSource:
