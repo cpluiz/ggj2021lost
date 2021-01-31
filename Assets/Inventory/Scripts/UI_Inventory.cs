@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class UI_Inventory : MonoBehaviour
 {
     public GameObject uiItemPrefab;
-    public GameObject playerHoldingUI;
+    public GameObject rightHolderUI;
+    public GameObject leftHolderUI;
 
 
     List<GameObject> itemsUi;
@@ -16,13 +17,15 @@ public class UI_Inventory : MonoBehaviour
     public void SetCombineItems(Func<ItemList, bool> func)
     {
         CombineItems = func;
-        playerHoldingUI.GetComponent<UI_Item>().SetCombineItems(CombineItems);
+        rightHolderUI.GetComponent<UI_Item>().SetCombineItems(CombineItems);
+        leftHolderUI.GetComponent<UI_Item>().SetCombineItems(CombineItems);
     }
 
     public void SetCatchItemFunc(Action<Item> func)
-    { 
-        CatchItem = func; 
-        playerHoldingUI.GetComponent<UI_Item>().SetCatchItemFunc(CatchItem);
+    {
+        CatchItem = func;
+        rightHolderUI.GetComponent<UI_Item>().SetCatchItem(CatchItem);
+        leftHolderUI.GetComponent<UI_Item>().SetCatchItem(CatchItem);
     }
 
     public void IncludeItem(Item item)
@@ -30,7 +33,7 @@ public class UI_Inventory : MonoBehaviour
         GameObject newUiItem;
         newUiItem = (GameObject)Instantiate(uiItemPrefab, transform);
         newUiItem.GetComponent<UI_Item>().SetItem(item);
-        newUiItem.GetComponent<UI_Item>().SetCatchItemFunc(CatchItem);
+        newUiItem.GetComponent<UI_Item>().SetCatchItem(CatchItem);
         newUiItem.GetComponent<UI_Item>().SetCombineItems(CombineItems);
 
         itemsUi.Add(newUiItem);
@@ -38,7 +41,6 @@ public class UI_Inventory : MonoBehaviour
 
     public void ExcludeItem(Item oldItem)
     {
-        Debug.Log("excluding");
         int index = itemsUi.FindIndex(itemUI => itemUI.GetComponent<UI_Item>().GetItem().itemName == oldItem.itemName);
         if (index != -1)
         {
@@ -47,35 +49,38 @@ public class UI_Inventory : MonoBehaviour
         }
     }
 
-    public void ReleaseItem(Item oldItem)
+    public void ReleaseItem(Item oldItem, bool rightHand)
     {
-        if(playerHoldingUI.GetComponent<UI_Item>().GetItem().itemName == oldItem.itemName)
+        if (rightHand)
         {
-            playerHoldingUI.GetComponent<UI_Item>().DeactivateItem();
-            IncludeItem(oldItem);
-        }
-    }
-
-    public void DeactivateHeldItem()
-    {
-        playerHoldingUI.GetComponent<UI_Item>().DeactivateItem();
-    }
-
-    public void OnCatchItem(Item newItem, Item oldItem = null)
-    {
-        int index = itemsUi.FindIndex(itemUI => itemUI.GetComponent<UI_Item>().GetItem().itemName == newItem.itemName);
-        if (index != -1)
-        {
-            playerHoldingUI.GetComponent<UI_Item>().SetItem(newItem);
-
-            Destroy(itemsUi[index].gameObject);
-            itemsUi.RemoveAt(index);
-
-            if (oldItem != null)
+            if (rightHolderUI.GetComponent<UI_Item>().GetItem().itemName == oldItem.itemName)
             {
-                IncludeItem(oldItem);
+                rightHolderUI.GetComponent<UI_Item>().DeactivateItem();
             }
         }
+        else
+        {
+            if (leftHolderUI.GetComponent<UI_Item>().GetItem().itemName == oldItem.itemName)
+            {
+                leftHolderUI.GetComponent<UI_Item>().DeactivateItem();
+            }
+        }
+    }
+
+    public void DeactivateHeldItem(bool rightHand)
+    {
+        if (rightHand)
+            rightHolderUI.GetComponent<UI_Item>().DeactivateItem();
+        else
+            leftHolderUI.GetComponent<UI_Item>().DeactivateItem();
+    }
+
+    public void OnCatchItem(Item newItem, bool rightHand)
+    {
+        if (rightHand)
+            rightHolderUI.GetComponent<UI_Item>().SetItem(newItem);
+        else
+            leftHolderUI.GetComponent<UI_Item>().SetItem(newItem);
     }
 
 

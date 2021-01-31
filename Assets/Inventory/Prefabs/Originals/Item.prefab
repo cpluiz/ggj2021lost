@@ -70,9 +70,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 661718609
+  m_SortingLayer: 4
+  m_SortingOrder: 6
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -108,7 +108,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.5511111, y: 0.32777777}
   m_EdgeRadius: 0
 --- !u!50 &7060051602792046561
 Rigidbody2D:
@@ -118,14 +118,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7060051602792046565}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -143,9 +143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 307f5b7322ee83b4e85480a396982718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: New Item A
+  itemName: NewItermA
   itemIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   itemObject: {fileID: 7060051602792046561}
   isUnique: 0
-  isQuestItem: 0
   destroyOnUse: 1
+  alwaysNotice: 1
+  canHoldWithRadio: 1
+  dualHanded: 0

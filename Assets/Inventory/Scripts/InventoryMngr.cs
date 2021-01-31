@@ -3,58 +3,71 @@ using UnityEngine;
 
 public class InventoryMngr : MonoBehaviour
 {
-    public Collider2D nearbyItemsCollider;
     public List<Receipt> receipts;
     public UI_Inventory uiInventoryInstance;
+    public Transform rightHandAttach;
+    public SpriteRenderer rightHandRenderer;
+    public Transform leftHandAttach;
+    public SpriteRenderer leftHandRenderer;
 
-    Item heldItem;
-    ItemList nearbyItems;
-    int maxNearbyItems = 5;
+    Item rightHeldItem;
+    Item leftHeldItem;
 
     // Start is called before the first frame update
     void Start()
     {
-        nearbyItems = ItemList.Create("PlayerInventory");
+        if (uiInventoryInstance == null)
+            uiInventoryInstance = GameObject.FindGameObjectWithTag("MainCanvas").GetComponentInChildren<UI_Inventory>();
+
         uiInventoryInstance.SetCatchItemFunc(CatchItem);
         uiInventoryInstance.SetCombineItems(CombineItems);
 
-        if (nearbyItemsCollider == null)
+        Radio radio;
+
+        //Not holding radio on start
+        if (rightHeldItem == null && leftHeldItem == null)
         {
-            if (!TryGetComponent<Collider2D>(out nearbyItemsCollider))
+            foreach (var item in GameObject.FindGameObjectsWithTag("Item"))
             {
-                nearbyItemsCollider = new CircleCollider2D();
-                ((CircleCollider2D)nearbyItemsCollider).radius = .2f;
+                if (item.TryGetComponent<Radio>(out radio))
+                {
+                    radio.ShowHiddenItems(true);
+                    break;
+                }
             }
         }
+        //Holding on right hand
+        else if (rightHeldItem.TryGetComponent<Radio>(out radio))
+            radio.ShowHiddenItems(false);
+        //Holding on left hand
+        else if (leftHeldItem.TryGetComponent<Radio>(out radio))
+            radio.ShowHiddenItems(false);
+        //Holding some item, but not the radio
+        else
+            radio.ShowHiddenItems(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
-            var tempList = new ItemList();
-            nearbyItems.itemList.ForEach(nearbyItem => tempList.itemList.Add(nearbyItem));
-            if (heldItem != null)
-                tempList.itemList.Add(heldItem);
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
 
-            CombineItems(tempList);
-            FindPossibleReceipts(tempList);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(mousePos2D, Vector2.zero);
+            foreach (var hit in hits)
+            {
+                if (hit.collider != null)
+                {
+                    if (hit.collider.gameObject.TryGetComponent<Item>(out var newItem))
+                    {
+                        CatchItem(newItem);
+                        break;
+                    }
+                }
+            }
         }
-    }
-
-    void OnCollisionEnter2D(Collision2D collider)
-    {
-        if (collider.transform.TryGetComponent<Item>(out Item item))
-            if (nearbyItems.itemList.Count < maxNearbyItems)
-                AddItem(item);
-    }
-
-    void OnCollisionExit2D(Collision2D collider)
-    {
-        if (collider.transform.TryGetComponent<Item>(out Item item))
-            if (nearbyItems.itemList.Contains(item))
-                RemoveItem(item);
     }
 
     bool CombineItems(ItemList itemsToCombine)
@@ -64,53 +77,65 @@ public class InventoryMngr : MonoBehaviour
             if (itemsToCombine.itemList.Count != receipt.neededItems.itemList.Count)
                 continue;
 
+            List<Item> tempList = new List<Item>();
+            receipt.neededItems.itemList.ForEach(item => tempList.Add(item));
+
             for (int i = 0; i < receipt.neededItems.itemList.Count; i++)
             {
-                if (itemsToCombine.itemList.FindIndex(item => item.name == receipt.neededItems.itemList[i].name) == -1)
-                    break;
+                if (!itemsToCombine.itemList[i].CanUse())
+                {
+                    return false;
+                }
 
-                if (i == (receipt.neededItems.itemList.Count - 1))
+                var index = tempList.FindIndex(item => item.itemName == itemsToCombine.itemList[i].itemName);
+                if (index == -1)
+                    break;
+                else if (i == (receipt.neededItems.itemList.Count - 1))
                 {
                     if (receipt.receiptResultPrefab != null)
                     {
                         GameObject newItem;
                         newItem = (GameObject)Instantiate(receipt.receiptResultPrefab);
                         newItem.transform.position = transform.position;
+
+                        if ((rightHeldItem == null || leftHeldItem == null) && newItem.TryGetComponent<Item>(out var item))
+                            CatchItem(item);
                     }
 
                     itemsToCombine.itemList.ForEach(item =>
                     {
-                        if(item.isUnique)
+                        if (item.isUnique)
                         {
-                            if(item.GetComponent<Radio>() != null)
-                            {
-                                Debug.Log("recarregue");
-                                item.GetComponent<Radio>().AddCharge(10);
-                            }
+                            item.UniqueCombine();
                         }
 
                         if (item.destroyOnUse)
                         {
-                            if (item == heldItem)
+                            if (item == rightHeldItem)
                             {
-                                Destroy(heldItem.gameObject);
-                                uiInventoryInstance.DeactivateHeldItem();
+                                Destroy(rightHeldItem.gameObject);
+                                uiInventoryInstance.DeactivateHeldItem(true);
                             }
-
-                            var nearbyIndex = nearbyItems.itemList.FindIndex(nearbyItem => nearbyItem.itemName == item.itemName);
-                            if (nearbyIndex != -1)
+                            else if (item == leftHeldItem)
                             {
-                                Destroy(nearbyItems.itemList[nearbyIndex]);
-                                Destroy(item.gameObject);
+                                Destroy(leftHeldItem.gameObject);
+                                uiInventoryInstance.DeactivateHeldItem(false);
                             }
                         }
                     });
 
+
+                    string itemList = "";
+                    itemsToCombine.itemList.ForEach(item => itemList += item.itemName + " ");
+                    Debug.Log("Made " + receipt.name + " combining " + itemList);
+
+                    itemsToCombine.itemList[i].Use();
                     return true;
                 }
+                else
+                    tempList.RemoveAt(index);
             }
         }
-        Debug.Log("Can't do receipt");
         return false;
     }
 
@@ -141,46 +166,138 @@ public class InventoryMngr : MonoBehaviour
 
     void AddItem(Item item)
     {
-        nearbyItems.itemList.Add(item);
         uiInventoryInstance.IncludeItem(item);
     }
 
     void RemoveItem(Item item)
     {
-        nearbyItems.itemList.Remove(item);
         uiInventoryInstance.ExcludeItem(item);
     }
 
-    void ReleaseItem(Item item)
+    void ReleaseItem(Item item, bool rightHand)
     {
-        nearbyItems.itemList.Add(item);
-        uiInventoryInstance.ReleaseItem(item);
-        heldItem.transform.SetParent(null);
-        heldItem = null;
+        uiInventoryInstance.ReleaseItem(item, rightHand);
+        if (rightHand)
+        {
+            rightHeldItem.transform.SetParent(null);
+            rightHeldItem.GetComponent<Rigidbody2D>().gravityScale = 1;
+            rightHeldItem.GetComponent<Collider2D>().enabled = true;
+            rightHeldItem = null;
+
+            if (leftHeldItem != null)
+            {
+                Radio tempRadio;
+                if (leftHeldItem.TryGetComponent<Radio>(out tempRadio) && !item.alwaysNotice)
+                {
+                    StartCoroutine(item.FadeOut(false, 2));
+                }
+            }
+        }
+        else
+        {
+            leftHeldItem.transform.SetParent(null);
+            leftHeldItem.GetComponent<Rigidbody2D>().gravityScale = 1;
+            leftHeldItem.GetComponent<Collider2D>().enabled = true;
+            leftHeldItem = null;
+
+            if (rightHeldItem != null)
+            {
+                Radio tempRadio;
+                if (rightHeldItem.TryGetComponent<Radio>(out tempRadio) && !item.alwaysNotice)
+                {
+                    StartCoroutine(item.FadeOut(false, 2));
+                }
+            }
+        }
+
+        item.BeingHeld = false;
+        if (item.isUnique)
+            item.UniqueRelease();
     }
 
     void CatchItem(Item newItem)
     {
-        if (newItem == heldItem)
+        bool caught = false; //might release instead
+
+        if (newItem == rightHeldItem)
         {
-            ReleaseItem(heldItem);
-            return;
+            ReleaseItem(rightHeldItem, true);
+        }
+        else if (newItem == leftHeldItem)
+        {
+            ReleaseItem(leftHeldItem, false);
+        }
+        else if (rightHeldItem == null)
+        {
+            rightHeldItem = newItem;
+            if (rightHandAttach != null)
+            {
+                rightHeldItem.transform.SetParent(rightHandAttach);
+                rightHeldItem.transform.position = rightHandAttach.position;
+                rightHeldItem.GetComponent<SpriteRenderer>().sortingOrder = rightHandRenderer.sortingOrder;
+            }
+            else
+            {
+                rightHeldItem.transform.SetParent(transform);
+            }
+            var rightItemRig = rightHeldItem.GetComponent<Rigidbody2D>();
+            rightItemRig.gravityScale = 0;
+            rightItemRig.velocity = Vector2.zero;
+            rightItemRig.angularVelocity = 0;
+
+            rightHeldItem.GetComponent<Collider2D>().enabled = false;
+            rightHeldItem.transform.rotation = rightHeldItem.HoldingRotation;
+            uiInventoryInstance.OnCatchItem(rightHeldItem, true);
+
+            rightHeldItem.BeingHeld = true;
+            if (rightHeldItem.isUnique)
+                rightHeldItem.UniqueCatch();
+
+            caught = true;
+        }
+        else if (leftHeldItem == null)
+        {
+            leftHeldItem = newItem;
+            if (leftHandAttach != null)
+            {
+                leftHeldItem.transform.SetParent(leftHandAttach);
+                leftHeldItem.transform.position = leftHandAttach.position;
+                leftHeldItem.GetComponent<SpriteRenderer>().sortingOrder = leftHandRenderer.sortingOrder - 1;
+            }
+            else
+            {
+                leftHeldItem.transform.SetParent(transform);
+            }
+            var leftItemRig = leftHeldItem.GetComponent<Rigidbody2D>();
+            leftItemRig.gravityScale = 0;
+            leftItemRig.velocity = Vector2.zero;
+            leftItemRig.angularVelocity = 0;
+
+            leftHeldItem.GetComponent<Collider2D>().enabled = false;
+            leftHeldItem.transform.rotation = leftHeldItem.HoldingRotation;
+            uiInventoryInstance.OnCatchItem(leftHeldItem, false);
+
+            leftHeldItem.BeingHeld = true;
+            if (leftHeldItem.isUnique)
+                leftHeldItem.UniqueCatch();
+
+            caught = true;
         }
 
-        var itemIndex = nearbyItems.itemList.FindIndex(item => item.itemName == newItem.itemName);
-        if (itemIndex != -1)
+        //gonna check if should there's an item that can't be held with other
+        if (caught && rightHeldItem != null && leftHeldItem != null)
         {
-            Item oldItem = null;
-            if (heldItem != null)
+            Radio radioRef;
+            if (rightHeldItem.TryGetComponent<Radio>(out radioRef))
             {
-                oldItem = heldItem;
-                nearbyItems.itemList.Add(heldItem);
+                if (!leftHeldItem.canHoldWithRadio)
+                    ReleaseItem(leftHeldItem, false);
             }
-            heldItem = nearbyItems.itemList[itemIndex];
-            heldItem.transform.SetParent(transform);
-
-            nearbyItems.itemList.RemoveAt(itemIndex);
-            uiInventoryInstance.OnCatchItem(heldItem, oldItem);
+            else if (leftHeldItem.TryGetComponent<Radio>(out radioRef))
+            {
+                if (!rightHeldItem.canHoldWithRadio)
+                    ReleaseItem(rightHeldItem, false);
+            }
         }
     }
 }

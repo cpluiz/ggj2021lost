@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Interactable
+  - Item
+  - MainCanvas
   layers:
   - Default
   - TransparentFX
@@ -13,10 +16,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - BackgroundScenary
+  - ForegroundScenary
+  - Obstacles
+  - Interactables
   - 
   - 
   - 
@@ -40,4 +43,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2128314065
+    locked: 0
+  - name: Scenary
+    uniqueID: 3317417635
+    locked: 0
+  - name: Foreground
+    uniqueID: 1764499121
+    locked: 0
+  - name: Player
+    uniqueID: 661718609
     locked: 0

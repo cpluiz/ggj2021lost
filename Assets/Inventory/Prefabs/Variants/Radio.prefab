@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Radio
-  itemIcon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  itemIcon: {fileID: 21300000, guid: d358bcd2b937386459f283d2cbf72582, type: 3}
   itemObject: {fileID: 889339228329042943}
   isUnique: 1
   isQuestItem: 0
   destroyOnUse: 0
+  batteryPercentage: 0
 --- !u!1001 &7903191544017435678
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25,6 +26,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.9246154
+      objectReference: {fileID: 0}
+    - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1.0092307
+      objectReference: {fileID: 0}
     - target: {fileID: 7060051602792046562, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: isUnique
@@ -40,6 +51,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Radio
       objectReference: {fileID: 0}
+    - target: {fileID: 7060051602792046566, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d358bcd2b937386459f283d2cbf72582,
+        type: 3}
     - target: {fileID: 7060051602792046567, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: m_RootOrder

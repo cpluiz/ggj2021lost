@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6128af25857bb9644a8c4150d8df8963, type: 3}
+  m_Name: FreeFairy
+  m_EditorClassIdentifier: 
+  neededItems: {fileID: 11400000, guid: 990403c3e65cc9847988b786501d23da, type: 2}
+  receiptResultPrefab: {fileID: 593720981591635714, guid: a2825de37a87f814899bcbc39db21988,
+    type: 3}
