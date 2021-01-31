@@ -20,12 +20,20 @@ public class SetPlayerTarget : MonoBehaviour{
     [SerializeField] private TextMeshPro textToShow;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private Rigidbody2D playerBody;
+
+    [Header("Foot targets for sound purposes")] 
+    [SerializeField] private Transform[] footReference;
+    [SerializeField] private LayerMask groundTypes;
+    private bool[] footOnGround;
     void Start(){
         targetController = GetComponent<AIDestinationSetter>();
         targetController.enabled = false;
         interactableObject = null;
         textArea.SetActive(false);
-        
+        footOnGround = new bool[footReference.Length];
+        for (int i = 0; i < footOnGround.Length; i++){
+            footOnGround[i] = true;
+        }
     }
 
     // Update is called once per frame
@@ -37,6 +45,7 @@ public class SetPlayerTarget : MonoBehaviour{
 
     private void LateUpdate(){
         CheckDistanceToInteractable();
+        CheckFootsteps();
     }
 
     private void CheckTarget(){
@@ -54,6 +63,22 @@ public class SetPlayerTarget : MonoBehaviour{
                 interactableObject = hit.transform.gameObject.GetComponent<InteractableTarget>();
             }
         }
+    }
+
+    private void CheckFootsteps(){
+        if (!playerAnimator.GetBool("Walking")) return;
+        RaycastHit2D hit;
+        int index = 0;
+        foreach (var foot in footReference){
+            hit = Physics2D.CircleCast(foot.position, 0.01f, Vector2.down, 0.01f, groundTypes);
+            if (hit.collider != null && !footOnGround[index]){
+                footOnGround[index] = true;
+                AudioAmbienceController.PlayStepAudio(hit.collider.gameObject.layer);
+            }else if(hit.collider == null){
+                footOnGround[index] = false;
+            }
+            index++;
+        } 
     }
 
     private void CheckDistanceToInteractable(){
