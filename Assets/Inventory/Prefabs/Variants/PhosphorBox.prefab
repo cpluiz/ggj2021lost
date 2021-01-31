@@ -78,6 +78,11 @@ PrefabInstance:
       propertyPath: destroyOnUse
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7060051602792046562, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
+        type: 3}
+      propertyPath: canHoldWithRadio
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7060051602792046565, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: m_Name

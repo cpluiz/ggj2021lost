@@ -8,20 +8,23 @@ public class Radio : Item
     [SerializeField]
     int batteryPercentage = 0;
 
-    public override void UniqueCatch()
+    public override bool UniqueCatch()
     {
         base.UniqueCatch();
         ShowHiddenItems(false);
+        return true;
     }
-    public override void UniqueRelease()
+    public override bool UniqueRelease()
     {
         base.UniqueRelease();
         ShowHiddenItems(true);
+        return true;
     }
-    public override void UniqueCombine()
+    public override bool UniqueCombine()
     {
         base.UniqueCombine();
         AddCharge();
+        return true;
     }
 
 

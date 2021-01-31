@@ -1,27 +1,27 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5674720226564782642
+--- !u!114 &-3073403321161981797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7298575738141302117}
+  m_GameObject: {fileID: 486197594017719690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a450d501ca1eaf4cae5fb08ca3bfef1, type: 3}
+  m_Script: {fileID: 11500000, guid: 789012c25e3bc9843a520d971d534a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: LitPhosphor
-  itemIcon: {fileID: 21300000, guid: 940d6cfa8c64b0d47a5e39be66504cfe, type: 3}
-  itemObject: {fileID: 7298575738141302113}
+  itemName: Gas
+  itemIcon: {fileID: 21300000, guid: a92febb41ef7b274f9a8c0a50e488c58, type: 3}
+  itemObject: {fileID: 486197594017719694}
   isUnique: 1
-  destroyOnUse: 1
-  alwaysNotice: 1
-  canHoldWithRadio: 1
+  destroyOnUse: 0
+  alwaysNotice: 0
+  canHoldWithRadio: 0
   dualHanded: 0
   limitUses: -1
---- !u!1001 &338869965629850240
+--- !u!1001 &7441360161941994095
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -31,84 +31,79 @@ PrefabInstance:
     - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: m_Size.x
-      value: 0.8261539
+      value: 1.2433333
       objectReference: {fileID: 0}
     - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.05
+      value: 1.8999999
       objectReference: {fileID: 0}
     - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: m_Offset.x
-      value: -0.3537051
+      value: -0.17210138
       objectReference: {fileID: 0}
     - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: m_Offset.y
-      value: 0.0033686236
+      value: -0.41304287
       objectReference: {fileID: 0}
     - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.9281346
+      value: 0.6135411
       objectReference: {fileID: 0}
     - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.48614174
-      objectReference: {fileID: 0}
-    - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 5.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
-        type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 1.58
+      value: 0.725531
       objectReference: {fileID: 0}
     - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.8261539
+      value: 1.2433333
       objectReference: {fileID: 0}
     - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.24307692
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 7060051602792046562, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: itemIcon
       value: 
-      objectReference: {fileID: 21300000, guid: 940d6cfa8c64b0d47a5e39be66504cfe,
+      objectReference: {fileID: 21300000, guid: a92febb41ef7b274f9a8c0a50e488c58,
         type: 3}
     - target: {fileID: 7060051602792046562, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: itemName
-      value: LitPhosphor
+      value: Gas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7060051602792046562, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
+        type: 3}
+      propertyPath: alwaysNotice
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7060051602792046562, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
+        type: 3}
+      propertyPath: destroyOnUse
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7060051602792046562, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
+        type: 3}
+      propertyPath: canHoldWithRadio
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7060051602792046565, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: m_Name
-      value: LitPhospor
-      objectReference: {fileID: 0}
-    - target: {fileID: 7060051602792046566, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 5.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 7060051602792046566, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.58
+      value: Gas
       objectReference: {fileID: 0}
     - target: {fileID: 7060051602792046566, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 940d6cfa8c64b0d47a5e39be66504cfe,
+      objectReference: {fileID: 21300000, guid: a92febb41ef7b274f9a8c0a50e488c58,
         type: 3}
     - target: {fileID: 7060051602792046567, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
@@ -168,15 +163,15 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7060051602792046562, guid: 86fb3fb26a90adc45a6f7ce334dfe402, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 86fb3fb26a90adc45a6f7ce334dfe402, type: 3}
---- !u!1 &7298575738141302117 stripped
+--- !u!1 &486197594017719690 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7060051602792046565, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
     type: 3}
-  m_PrefabInstance: {fileID: 338869965629850240}
+  m_PrefabInstance: {fileID: 7441360161941994095}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &7298575738141302113 stripped
+--- !u!50 &486197594017719694 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 7060051602792046561, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
     type: 3}
-  m_PrefabInstance: {fileID: 338869965629850240}
+  m_PrefabInstance: {fileID: 7441360161941994095}
   m_PrefabAsset: {fileID: 0}

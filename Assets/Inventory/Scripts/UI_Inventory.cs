@@ -14,6 +14,38 @@ public class UI_Inventory : MonoBehaviour
     Action<Item> CatchItem;
     Func<ItemList, bool> CombineItems;
 
+    public void CombineHeldItems()
+    {
+        var rightItem = rightHolderUI.GetComponent<UI_Item>().GetItem();
+        var leftItem = leftHolderUI.GetComponent<UI_Item>().GetItem();
+
+        if (rightItem == null && leftItem == null)
+        {
+            return;
+        }
+        else if (rightItem != null && leftItem != null)
+        {
+            ItemList newList = ItemList.CreateTempList();
+            newList.itemList.Add(rightItem);
+            newList.itemList.Add(leftItem);
+            CombineItems(newList);
+        }
+        else if (rightItem != null)
+        {
+            ItemList newList = ItemList.CreateTempList();
+            newList.itemList.Add(rightItem);
+            newList.itemList.Add(rightItem);
+            CombineItems(newList);
+        }
+        else
+        {
+            ItemList newList = ItemList.CreateTempList();
+            newList.itemList.Add(leftItem);
+            newList.itemList.Add(leftItem);
+            CombineItems(newList);
+        }
+    }
+
     public void SetCombineItems(Func<ItemList, bool> func)
     {
         CombineItems = func;
@@ -30,12 +62,14 @@ public class UI_Inventory : MonoBehaviour
 
     public void IncludeItem(Item item)
     {
+        if (uiItemPrefab == null) return;
+
         GameObject newUiItem;
         newUiItem = (GameObject)Instantiate(uiItemPrefab, transform);
         newUiItem.GetComponent<UI_Item>().SetItem(item);
         newUiItem.GetComponent<UI_Item>().SetCatchItem(CatchItem);
         newUiItem.GetComponent<UI_Item>().SetCombineItems(CombineItems);
-
+    
         itemsUi.Add(newUiItem);
     }
 
