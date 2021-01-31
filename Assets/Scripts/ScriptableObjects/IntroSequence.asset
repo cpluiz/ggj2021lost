@@ -46,90 +46,90 @@ MonoBehaviour:
     textId: 
     ambienceEffect: 0
   - type: 2
-    audio: {fileID: 8300000, guid: 7c3b6cf7150ab314295b69302bad7270, type: 3}
-    textId: 
-    ambienceEffect: 0
-  - type: 3
     audio: {fileID: 0}
-    textId: INTRO_TEXT_4
-    ambienceEffect: 0
-  - type: 3
-    audio: {fileID: 0}
-    textId: INTRO_TEXT_5
-    ambienceEffect: 0
-  - type: 2
-    audio: {fileID: 8300000, guid: 46de48cf716f4e04aad08b2ee1ed0f15, type: 3}
     textId: 
-    ambienceEffect: 0
-  - type: 0
-    audio: {fileID: 8300000, guid: c57a5228038a674408d118c54e0b4778, type: 3}
-    textId: 
-    ambienceEffect: 0
-  - type: 0
-    audio: {fileID: 8300000, guid: 46de48cf716f4e04aad08b2ee1ed0f15, type: 3}
-    textId: 
-    ambienceEffect: 0
-  - type: 3
-    audio: {fileID: 0}
-    textId: INTRO_TEXT_6
-    ambienceEffect: 0
-  - type: 2
-    audio: {fileID: 8300000, guid: 1f6b1ef936654a04aaebdbdf42b8f601, type: 3}
-    textId: 
-    ambienceEffect: 0
-  - type: 2
-    audio: {fileID: 8300000, guid: c745aafbac6f4024590a4736f83562bd, type: 3}
-    textId: 
-    ambienceEffect: 0
-  - type: 2
-    audio: {fileID: 8300000, guid: 797b904bf331b7c4bb45e83e018a573a, type: 3}
-    textId: 
-    ambienceEffect: 0
-  - type: 2
-    audio: {fileID: 8300000, guid: 404a8812948e12a4d97ad56e3f5d1e8a, type: 3}
-    textId: 
-    ambienceEffect: 0
-  - type: 2
-    audio: {fileID: 8300000, guid: 85877044557471043a36a8da0639a651, type: 3}
-    textId: 
-    ambienceEffect: 0
-  - type: 0
-    audio: {fileID: 8300000, guid: c745aafbac6f4024590a4736f83562bd, type: 3}
-    textId: 
-    ambienceEffect: 0
-  - type: 3
-    audio: {fileID: 0}
-    textId: INTRO_TEXT_7
-    ambienceEffect: 0
-  - type: 2
-    audio: {fileID: 8300000, guid: f144ebc6ff4de864ea2bc19c8a0d987b, type: 3}
-    textId: 
-    ambienceEffect: 0
-  - type: 2
-    audio: {fileID: 8300000, guid: 373da894471b1b74e9632881ce8b4609, type: 3}
-    textId: 
-    ambienceEffect: 0
-  - type: 3
-    audio: {fileID: 0}
-    textId: INTRO_TEXT_8
     ambienceEffect: 0
   - type: 0
     audio: {fileID: 0}
     textId: 
-    ambienceEffect: 6
+    ambienceEffect: 0
   - type: 0
     audio: {fileID: 0}
     textId: 
     ambienceEffect: 0
-  - type: 2
-    audio: {fileID: 8300000, guid: 05da12f349382a141a3d9160965204e3, type: 3}
+  - type: 0
+    audio: {fileID: 0}
     textId: 
     ambienceEffect: 0
-  - type: 3
+  - type: 0
     audio: {fileID: 0}
-    textId: INTRO_TEXT_9
+    textId: 
     ambienceEffect: 0
-  - type: 3
+  - type: 0
     audio: {fileID: 0}
-    textId: INTRO_TEXT_10
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
+    ambienceEffect: 0
+  - type: 0
+    audio: {fileID: 0}
+    textId: 
     ambienceEffect: 0
