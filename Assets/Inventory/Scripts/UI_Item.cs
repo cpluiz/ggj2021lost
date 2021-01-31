@@ -52,7 +52,7 @@ public class UI_Item : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerCli
             CatchItem(item);
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public virtual void OnDrag(PointerEventData eventData)
     {
         var canvas = transform.GetComponentInParent<Canvas>();
         if (canvas != null)
@@ -63,7 +63,7 @@ public class UI_Item : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerCli
         itemImage.transform.position = Input.mousePosition;
     }
 
-    List<RaycastResult> GetMouseHitting()
+    internal List<RaycastResult> GetMouseHitting()
     {
         pointerEventData.position = Input.mousePosition;
         List<RaycastResult> results = new List<RaycastResult>();
@@ -71,9 +71,19 @@ public class UI_Item : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerCli
         return results;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public virtual void OnEndDrag(PointerEventData eventData)
     {
         itemImage.transform.SetParent(transform);
+
+        if (item != null && item.isUnique)
+        {
+            bool res = item.UniqueCombineWithScenario();
+            if (res && item.destroyOnUse)
+            {
+                Debug.Log("deativating");
+                DeactivateItem();
+            }
+        }
 
         foreach (RaycastResult result in GetMouseHitting())
         {
@@ -84,7 +94,6 @@ public class UI_Item : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerCli
                     ItemList newList = ItemList.CreateTempList();
                     newList.itemList.Add(uiItem.item);
                     newList.itemList.Add(this.item);
-
                     CombineItems(newList);
                 }
                 break;
@@ -95,7 +104,7 @@ public class UI_Item : MonoBehaviour, IDragHandler, IEndDragHandler, IPointerCli
     }
 
 
-    public void OnPointerClick(PointerEventData eventData)
+    public virtual void OnPointerClick(PointerEventData eventData)
     {
         float dragDistance = Vector2.Distance(eventData.pressPosition, eventData.position);
         float dragThreshold = 10f;

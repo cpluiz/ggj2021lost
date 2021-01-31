@@ -50,9 +50,10 @@ public class Item : MonoBehaviour
         FadeOut(alwaysNotice);
     }
 
-    public virtual void UniqueCatch() { }
-    public virtual void UniqueRelease() { }
-    public virtual void UniqueCombine() { }
+    public virtual bool UniqueCatch() { return false; }
+    public virtual bool UniqueRelease() { return false; }
+    public virtual bool UniqueCombine() { return false; }
+    public virtual bool UniqueCombineWithScenario() { return false; }
 
 
     public IEnumerator FadeOut(bool show, int afterTime = 0)

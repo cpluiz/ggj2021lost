@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LightPhosporItems
   m_EditorClassIdentifier: 
   itemList:
-  - {fileID: 7181544758512140871, guid: c227de809a1292b44a30c7f6b6b8c41e, type: 3}
   - {fileID: 8524855663121617529, guid: c326c2ae1457b624aa5c30e97ad44378, type: 3}
+  - {fileID: 7181544758512140871, guid: c227de809a1292b44a30c7f6b6b8c41e, type: 3}

@@ -15,7 +15,7 @@ public class PlayerSpeaker : MonoBehaviour
     string textStringIdentifier = "$TEXT";
 
 
-    string baseText = "<b><color=#ff2222>$PLAYERNAME:</color></b><color=black>$TEXT</color>";
+    string baseText = "<b><color=#ff2222>$PLAYERNAME:</color></b><color=white>$TEXT</color>";
 
 
     // Start is called before the first frame update
