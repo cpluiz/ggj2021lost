@@ -82,6 +82,7 @@ public class ScriptableEventController : MonoBehaviour{
             }
             sequenceStep++;
         }
+        instance.insideSequence = false;
     }
     
 }

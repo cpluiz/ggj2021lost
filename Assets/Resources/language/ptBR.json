@@ -21,7 +21,7 @@
     "targetType" : "player",
     "characterName" : "",
     "textColor" : "#FFFFFF",
-    "text" : "Onde pode estar?"
+    "text" : "Ah!"
   },
   "INTRO_TEXT_4" : {
     "targetType" : "radio",

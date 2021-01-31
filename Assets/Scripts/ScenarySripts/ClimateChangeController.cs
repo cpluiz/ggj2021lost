@@ -50,7 +50,7 @@ public class ClimateChangeController : MonoBehaviour{
     }
 
     public static void VignetteToBrighter(){
-        _instance.intensityChange = -Mathf.Abs(_instance.intensityChange);
+        _instance.StartCoroutine(nameof(ChangeVignetteIntensityToBrighter));
     }
 
     public static void VignetteToGloomer(){
