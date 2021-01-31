@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4391567418824010030}
   - component: {fileID: 4916597261091252383}
   - component: {fileID: 9130917765162368667}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CharacterTextArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 8775735032559994851}
   - component: {fileID: 6992187530323874031}
   - component: {fileID: 1101119786498582280}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   - component: {fileID: 8177707406606665583}
   - component: {fileID: 573779010716922523}
   - component: {fileID: 8670302615287402064}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
