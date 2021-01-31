@@ -17,6 +17,7 @@ public class Speaker : MonoBehaviour{
         if (_instance == null) {
             _instance = this;
             DontDestroyOnLoad(this);
+            SetTextSpeed(TextSpeed.normal);
         }else if (_instance != this) {
             Destroy(gameObject);
         }
@@ -36,17 +37,44 @@ public class Speaker : MonoBehaviour{
     private bool completedText = false;
     public static bool completed { get { return _instance.completedText; } }
     
-    public void WriteTextById(string textId, bool hasNext) {
-        //EnableCanvas();
+    [Header("Player/radio/NPCs references for Speach Controller")]
+    public DialogBox playerDialog, radioDialog, grandmaDialog, dogDialog, armlessDialog, childDialog, lumenDialog;
+    
+    public void WriteTextById(string textId, bool hasNext){
+        DisableDialogBox();
+        StopAllCoroutines();
         _instance.textColor = TextController.GetTextColor(textId);
         completedText = false;
-        StopAllCoroutines();
+        _instance.SetDialogBox(TextController.GetTargetType(textId));
+        EnableDialogBox();
         showNext = hasNext;
+        AudioAmbienceController.PlayCharacterVoice(TextController.GetTargetType(textId));
         StartCoroutine(WriteDelay(TextController.GetString(textId)));
     }
 
+    private void EnableDialogBox(){
+        targetBox.gameObject.SetActive(true);
+    }
+    private void DisableDialogBox(){
+        if (targetBox == null) return;
+        targetBox.gameObject.SetActive(false);
+    }
+
+    private void SetDialogBox(string boxIdentifier){
+        if (boxIdentifier == "radio")
+            targetBox = radioDialog;
+        else if (boxIdentifier == "grandma")
+            targetBox = grandmaDialog;
+        else if (boxIdentifier == "lumen")
+            targetBox = lumenDialog;
+        else if (boxIdentifier == "armless")
+            targetBox = armlessDialog;
+        else
+            targetBox = playerDialog;
+    }
+
     public static void WriteTextById(string textId) {
-        _instance.WriteTextById(TextController.GetString(textId),false);
+        _instance.WriteTextById(textId,false);
     }
 
     public static void UpdateText(string txt) {
@@ -55,7 +83,8 @@ public class Speaker : MonoBehaviour{
     
     public static void Skip() {
         if(instance.completedText) {
-            DisableCanvas();
+            instance.DisableDialogBox();
+            AudioAmbienceController.StopCharacterVoice();
         } else {
             instance.StopAllCoroutines();
             UpdateText(instance.fullText);
@@ -77,7 +106,6 @@ public class Speaker : MonoBehaviour{
             newText[i++] = fullText[count++];
             UpdateText(new string(newText));
         }
-        _instance.completedText = true;
         StartCoroutine(AutoNext(_instance.waitDelay));
     }
     
@@ -86,13 +114,11 @@ public class Speaker : MonoBehaviour{
         if(ShowDialogText.instance.hasNextMessage)
             ShowDialogText.WriteMessage();
         else
-            DisableCanvas();
+            DisableDialogBox();
+        AudioAmbienceController.StopCharacterVoice();
+        _instance.completedText = true;
     }
 
-    public static void DisableCanvas(){
-        instance.targetBox.gameObject.SetActive(false);
-    }
-    
     public static void SetTextSpeed(TextSpeed spd) {
         switch(spd) {
             case TextSpeed.slow:

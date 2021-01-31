@@ -57,6 +57,10 @@ public class ClimateChangeController : MonoBehaviour{
         _instance.intensityChange = Mathf.Abs(_instance.intensityChange);
     }
 
+    public static void VignetteTotalGloom(){
+        instance.vg.intensity.value = 1;
+    }
+
     private IEnumerator ChangeVignetteIntensityToGloomer(){
         StopCoroutine(nameof(ChangeVignetteIntensityToBrighter));
         while (vg.intensity.value <= vignetteTargetRange){
@@ -118,4 +122,14 @@ public class ClimateChangeController : MonoBehaviour{
         _instance.StartCoroutine(nameof(ChangeColorToNormal));
     }
     
+}
+[Flags]
+public enum AmbienceEffectType{
+    temperatureGloom,
+    temperatureNormal,
+    colorGloom,
+    colorNormal,
+    vignetteTotalGloom,
+    vignetteGloom,
+    vignetteNormal,
 }

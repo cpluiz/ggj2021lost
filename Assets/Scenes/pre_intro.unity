@@ -750,6 +750,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 647050e9a3c244145b284bd2f52c0154, type: 3}
   - {fileID: 8300000, guid: db06f3f26a720ec45ae4954a220108f7, type: 3}
   - {fileID: 8300000, guid: d34618d77e1374848aa0385876ecfaab, type: 3}
+  playerVoice:
+  - {fileID: 8300000, guid: 3f8bac7694a08d04d8edc99dbd956f27, type: 3}
+  - {fileID: 8300000, guid: 95f989f69f6dd68418b9a113aa1e52ba, type: 3}
+  radioVoice:
+  - {fileID: 8300000, guid: e57e5e735515d4047a698ddd3cd4b933, type: 3}
+  grandmaVoice: []
+  lumenVoice: []
+  armlessVoice: []
+  dogVoice: []
   ambienceAudio: {fileID: 0}
 --- !u!82 &2091547192
 AudioSource:

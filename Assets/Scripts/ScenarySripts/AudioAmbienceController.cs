@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioAmbienceController : MonoBehaviour{
@@ -11,11 +13,15 @@ public class AudioAmbienceController : MonoBehaviour{
     
     [Header("Ambience Effects")]
     public AudioClip[] waterDroplets;
-    [Header("Character Effects")]
+    [Header("Main Character Effects")]
     [SerializeField] private AudioClip[] solidSurfaceStep;
     [SerializeField] private AudioClip[] solidSurfaceStepEchoed;
     [SerializeField] private AudioClip[] mudSurfaceStep;
     [SerializeField] private AudioClip[] puddleSurfaceStep;
+
+    [Header("Character voices variants")] [SerializeField]
+    private AudioClip[] playerVoice;
+    [SerializeField] private AudioClip[] radioVoice, grandmaVoice, lumenVoice, armlessVoice, dogVoice;
     
     [Header("Audio Source Reference")]
     [SerializeField] private AudioSource ambienceAudio;
@@ -68,5 +74,22 @@ public class AudioAmbienceController : MonoBehaviour{
         }else if (layerMask == LayerMask.NameToLayer("PuddleFloor")){
             _instance.ambienceAudio.PlayOneShot(_instance.puddleSurfaceStep[Random.Range(0,_instance.puddleSurfaceStep.Length)]);
         }
+    }
+
+    public static void PlayCharacterVoice(string characterId){
+        if (characterId == "radio")
+            _instance.ambienceAudio.PlayOneShot(_instance.radioVoice[Random.Range(0,_instance.radioVoice.Length)]);
+        else if (characterId == "grandma")
+            _instance.ambienceAudio.PlayOneShot(_instance.grandmaVoice[Random.Range(0,_instance.grandmaVoice.Length)]);
+        else if (characterId == "lumen")
+            _instance.ambienceAudio.PlayOneShot(_instance.lumenVoice[Random.Range(0,_instance.lumenVoice.Length)]);
+        else if (characterId == "armless")
+            _instance.ambienceAudio.PlayOneShot(_instance.armlessVoice[Random.Range(0,_instance.armlessVoice.Length)]);
+        else
+            _instance.ambienceAudio.PlayOneShot(_instance.playerVoice[Random.Range(0,_instance.playerVoice.Length)]);
+    }
+
+    public static void StopCharacterVoice(){
+        _instance.ambienceAudio.Stop();
     }
 }

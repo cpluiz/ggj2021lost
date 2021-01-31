@@ -2,7 +2,67 @@
   "TEXT_EXAMPLE_1" : {
     "targetType" : "radio",
     "characterName" : "",
-    "textColor" : "#FFFFFF",
+    "textColor" : "#D71818",
     "text" : "Uma Fake News aleatória"
+  },
+  "INTRO_TEXT_1" : {
+    "targetType" : "player",
+    "characterName" : "",
+    "textColor" : "#FFFFFF",
+    "text" : "Onde está?"
+  },
+  "INTRO_TEXT_2" : {
+    "targetType" : "player",
+    "characterName" : "",
+    "textColor" : "#FFFFFF",
+    "text" : "Onde pode estar?"
+  },
+  "INTRO_TEXT_3" : {
+    "targetType" : "player",
+    "characterName" : "",
+    "textColor" : "#FFFFFF",
+    "text" : "Onde pode estar?"
+  },
+  "INTRO_TEXT_4" : {
+    "targetType" : "radio",
+    "characterName" : "",
+    "textColor" : "#D71818",
+    "text" : "Fazer gargarejo com água morna, sal e vinagre te deixa imune a doenças"
+  },
+  "INTRO_TEXT_5" : {
+    "targetType" : "player",
+    "characterName" : "",
+    "textColor" : "#FFFFFF",
+    "text" : "Melhor separar mais vinagre..."
+  },
+  "INTRO_TEXT_6" : {
+    "targetType" : "player",
+    "characterName" : "",
+    "textColor" : "#FFFFFF",
+    "text" : "O QUE!!??"
+  },
+  "INTRO_TEXT_7" : {
+    "targetType" : "player",
+    "characterName" : "",
+    "textColor" : "#FFFFFF",
+    "text" : "Droga..."
+  },
+  "INTRO_TEXT_8" : {
+    "targetType" : "player",
+    "characterName" : "",
+    "textColor" : "#FFFFFF",
+    "text" : "Humm..."
+  },
+  "INTRO_TEXT_9" : {
+    "targetType" : "player",
+    "characterName" : "",
+    "textColor" : "#FFFFFF",
+    "text" : "O que farei sem ele?"
+  },
+  "INTRO_TEXT_10" : {
+    "targetType" : "player",
+    "characterName" : "",
+    "textColor" : "#FFFFFF",
+    "text" : "Preciso de baterias novas..."
   }
 }

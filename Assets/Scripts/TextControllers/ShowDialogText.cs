@@ -18,7 +18,8 @@ public class ShowDialogText : MonoBehaviour{
     private string[] messageIDs;
     private int index = 0;
     public string nextMessage { get { return messageIDs[index++]; } }
-    public bool hasNextMessage { get { return index < messageIDs.Length; } }
+    //public bool hasNextMessage { get { return index < messageIDs.Length; } }
+    public bool hasNextMessage { get { return false; } }
     
     public static void WriteMessage() {
         if(instance.hasNextMessage) {

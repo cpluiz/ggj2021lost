@@ -61,9 +61,11 @@ public class TextController : MonoBehaviour{
     public static Color GetTextColor(string stringId){
         if(_instance.languageChanged) _instance.LoadLanguage(_instance.languageId);
         TextStructure textStructure;
+        Debug.Log(stringId);
         Color color = Color.white;
         if (_instance.textStrings.TryGetValue(stringId, out textStructure))
-            ColorUtility.TryParseHtmlString(textStructure.textHexColor, out color);
+            ColorUtility.TryParseHtmlString(textStructure.textColor, out color);
+        Debug.Log(textStructure.textColor);
         return color;
     }
     
@@ -72,6 +74,6 @@ public class TextController : MonoBehaviour{
 public class TextStructure{
     public string targetType;
     public string characterName;
-    public string textHexColor;
+    public string textColor;
     public string text;
 }

@@ -2,7 +2,7 @@
 using TMPro;
 
 public class DialogBox : MonoBehaviour{
-    [SerializeField] private TextMeshPro textArea;
+    [SerializeField] private TextMeshProUGUI textArea;
 
     public void SetColor(Color color){
         textArea.color = color;

@@ -1,6 +1,7 @@
 ﻿using System;
 using RDG;
 using Pathfinding;
+using ScenarySripts;
 using UnityEngine;
 
 public class SetPlayerTarget : MonoBehaviour{
@@ -25,7 +26,6 @@ public class SetPlayerTarget : MonoBehaviour{
         targetController = GetComponent<AIDestinationSetter>();
         targetController.enabled = false;
         interactableObject = null;
-        textArea.SetActive(false);
         footOnGround = new bool[footReference.Length];
         for (int i = 0; i < footOnGround.Length; i++){
             footOnGround[i] = true;
@@ -34,6 +34,11 @@ public class SetPlayerTarget : MonoBehaviour{
 
     // Update is called once per frame
     void Update(){
+        if (ScriptableEventController.isInsideSequence){
+            StopAllCoroutines();
+            playerAnimator.SetBool("Walking", false);
+            return;
+        }
         if (Input.GetMouseButton(0)){
             CheckTarget();
         }
