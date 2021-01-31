@@ -24,7 +24,7 @@ MonoBehaviour:
     value: {r: 0, g: 0, b: 0, a: 1}
   center:
     overrideState: 1
-    value: {x: 0.5, y: 0.65}
+    value: {x: 0.5, y: 0.77}
   intensity:
     overrideState: 1
     value: 0
@@ -33,9 +33,9 @@ MonoBehaviour:
     value: 1
   roundness:
     overrideState: 0
-    value: 0.07
+    value: 1
   rounded:
-    overrideState: 0
+    overrideState: 1
     value: 1
   mask:
     overrideState: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: 0
+    value: -60
   tint:
     overrideState: 0
     value: 0
