@@ -7,8 +7,8 @@ public class BushOfThorns : MonoBehaviour
     public GameObject thornsPrefab;
     [SerializeField]
     int offset = 5;
-    [SerializeField]
-    int maxThorns = 5;
+    //[SerializeField]
+    //int maxThorns = 5;
     List<GameObject> thorns;
 
     // Start is called before the first frame update

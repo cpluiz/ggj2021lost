@@ -10,11 +10,11 @@ public class MainMenuScript : MonoBehaviour{
     }
 
     public void Settings(){
-        Debug.Log("Settings here");
+        SettingsScript.instance.ShowSettings();
     }
 
     public void Credits(){
-        Debug.Log("Credits here \\o>");
+        SceneManager.LoadScene("CreditsScene");
     }
 
     public void CloseGame(){
