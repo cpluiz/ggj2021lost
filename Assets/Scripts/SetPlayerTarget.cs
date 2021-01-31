@@ -18,43 +18,48 @@ public class SetPlayerTarget : MonoBehaviour{
 
     [SerializeField] private GameObject textArea;
     [SerializeField] private TextMeshPro textToShow;
-    //private Animator robotAnimator;
+    [SerializeField] private Animator playerAnimator;
+    [SerializeField] private Rigidbody2D playerBody;
     void Start(){
         targetController = GetComponent<AIDestinationSetter>();
         targetController.enabled = false;
         interactableObject = null;
         textArea.SetActive(false);
-        //robotAnimator = GetComponentInChildren<Animator>();
+        
     }
 
     // Update is called once per frame
     void Update(){
         if (Input.GetMouseButton(0)){
-            Vector3 mousePosition = Input.mousePosition;
-            mousePosition.z = Camera.main.nearClipPlane;
-            targetPoint.position = Camera.main.ScreenToWorldPoint(mousePosition);
-            targetController.target = targetPoint;
-            targetController.enabled = true;
-            interactableObject = null;
-            //robotAnimator.SetBool("Walking", true);
-            transform.localScale = new Vector3(Math.Sign(targetPoint.position.x - transform.position.x), 1, 1);
-            textArea.transform.localScale = transform.localScale = new Vector3(Math.Sign(targetPoint.position.x - transform.position.x), 1, 1);
-            RaycastHit2D hit = Physics2D.Raycast(targetPoint.position, -Vector2.up, 0.05f);
-            if (hit.collider != null){
-                if (hit.transform.gameObject.GetComponent<InteractableTarget>()){
-                    interactableObject = hit.transform.gameObject.GetComponent<InteractableTarget>();
-                }
-            }
+            CheckTarget();
         }
-
-        float newSize = (4 - transform.position.y);
-        //transform.localScale = new Vector3(Math.Abs(newSize), newSize);
     }
 
-    private void FixedUpdate(){
-        if (Vector2.Distance(transform.position, targetPoint.position) <= minDistance){
+    private void LateUpdate(){
+        CheckDistanceToInteractable();
+    }
+
+    private void CheckTarget(){
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition.z = Camera.main.nearClipPlane;
+        targetPoint.position = Camera.main.ScreenToWorldPoint(mousePosition);
+        targetController.target = targetPoint;
+        targetController.enabled = true;
+        interactableObject = null;
+        playerAnimator.SetBool("Walking", true);
+        transform.localScale = new Vector3(Math.Sign(transform.position.x - targetPoint.position.x), 1, 1);
+        RaycastHit2D hit = Physics2D.Raycast(targetPoint.position, -Vector2.up, 0.05f);
+        if (hit.collider != null){
+            if (hit.transform.gameObject.GetComponent<InteractableTarget>()){
+                interactableObject = hit.transform.gameObject.GetComponent<InteractableTarget>();
+            }
+        }
+    }
+
+    private void CheckDistanceToInteractable(){
+        if (Math.Abs(transform.position.x - targetPoint.position.x) <= minDistance){
             targetController.enabled = false;
-            //robotAnimator.SetBool("Walking", false);
+            playerAnimator.SetBool("Walking", false);
             if (interactableObject != null){
                 Vibration.Vibrate(100, 100);
                 textToShow.text = TextController.getString("TEXT_EXAMPLE_1");

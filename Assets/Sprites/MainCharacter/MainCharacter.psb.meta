@@ -106,7 +106,7 @@ ScriptedImporter:
       rotation: {x: 0, y: 0, z: -0.83075726, w: 0.5566349}
       length: 163.54552
       parentId: -1
-    - name: bone_3
+    - name: Neck
       position: {x: -18.768505, y: -2.087354, z: 0}
       rotation: {x: 0, y: 0, z: -0.98474395, w: 0.17400983}
       length: 72.901566
@@ -940,7 +940,7 @@ ScriptedImporter:
       rotation: {x: 0, y: 0, z: -0.83075726, w: 0.5566349}
       length: 163.54552
       parentId: -1
-    - name: bone_3
+    - name: Neck
       position: {x: -18.768461, y: -2.0873551, z: 0}
       rotation: {x: 0, y: 0, z: -0.98474395, w: 0.17400983}
       length: 72.901566
@@ -1471,9 +1471,9 @@ ScriptedImporter:
     internalID: 0
     spriteBone:
     - name: left_leg_2
-      position: {x: 303.86264, y: -2.1891637, z: 0}
-      rotation: {x: 0, y: 0, z: -0.15348923, w: 0.9881503}
-      length: 325.30994
+      position: {x: 303.8626, y: -2.1891754, z: 0}
+      rotation: {x: 0, y: 0, z: -0.15348923, w: 0.98815036}
+      length: 325.30997
       parentId: 1
     - name: left_leg_1
       position: {x: 50.134735, y: 371.04083, z: 0}
@@ -2047,7 +2047,7 @@ ScriptedImporter:
     internalID: 0
     spriteBone:
     - name: right_leg_2
-      position: {x: 303.2453, y: 4.730257, z: 0}
+      position: {x: 303.24527, y: 4.7302566, z: 0}
       rotation: {x: 0, y: 0, z: 0.031804882, w: 0.99949414}
       length: 269.99515
       parentId: 1
@@ -2568,9 +2568,9 @@ ScriptedImporter:
     internalID: 0
     spriteBone:
     - name: left_leg_2
-      position: {x: 303.8626, y: -2.1891727, z: 0}
-      rotation: {x: 0, y: 0, z: -0.15348923, w: 0.9881503}
-      length: 325.30994
+      position: {x: 303.86255, y: -2.189181, z: 0}
+      rotation: {x: 0, y: 0, z: -0.15348923, w: 0.98815036}
+      length: 325.30997
       parentId: 1
     - name: left_leg_1
       position: {x: -26.865265, y: 629.04083, z: 0}
@@ -4711,7 +4711,7 @@ ScriptedImporter:
       rotation: {x: 0, y: 0, z: 0.18381475, w: 0.98296094}
       length: 138.56258
       parentId: 0
-    - name: bone_3
+    - name: Neck
       position: {x: -18.768505, y: -2.0873528, z: 0}
       rotation: {x: 0, y: -0, z: -0.98474395, w: 0.17400981}
       length: 72.901566
