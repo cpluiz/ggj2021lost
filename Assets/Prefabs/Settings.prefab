@@ -409,7 +409,6 @@ MonoBehaviour:
   languageDropdown: {fileID: 4230305931766453229}
   availableLanguages:
   - ptBR
-  - enUS
 --- !u!1 &4230305930111349116
 GameObject:
   m_ObjectHideFlags: 0

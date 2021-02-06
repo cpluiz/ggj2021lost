@@ -270,7 +270,7 @@ public class InventoryMngr : MonoBehaviour
             {
                 leftHeldItem.transform.SetParent(leftHandAttach);
                 leftHeldItem.transform.position = leftHandAttach.position;
-                leftHeldItem.GetComponent<SpriteRenderer>().sortingOrder = leftHandRenderer.sortingOrder - 1;
+                leftHeldItem.GetComponent<SpriteRenderer>().sortingOrder = leftHandRenderer.sortingOrder;
             }
             else
             {

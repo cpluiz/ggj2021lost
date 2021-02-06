@@ -19,6 +19,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0025120974
+      objectReference: {fileID: 0}
+    - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.60289866
+      objectReference: {fileID: 0}
+    - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
+        type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.x
       value: 0.49585465
       objectReference: {fileID: 0}
@@ -51,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 7060051602792046565, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: m_Name
-      value: Lamp
+      value: LitLamp
       objectReference: {fileID: 0}
     - target: {fileID: 7060051602792046566, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}

@@ -1,68 +1,170 @@
 {
-  "TEXT_EXAMPLE_1" : {
-    "targetType" : "radio",
-    "characterName" : "",
-    "textColor" : "#D71818",
-    "text" : "Uma Fake News aleatória"
+  "TEXT_EXAMPLE_1": {
+    "targetType": "radio",
+    "characterName": "",
+    "textColor": "#D71818",
+    "text": "Uma Fake News aleatória"
   },
-  "INTRO_TEXT_1" : {
-    "targetType" : "player",
-    "characterName" : "",
-    "textColor" : "#FFFFFF",
-    "text" : "Onde está?"
+  "INTRO_TEXT_1": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "Onde está?"
   },
-  "INTRO_TEXT_2" : {
-    "targetType" : "player",
-    "characterName" : "",
-    "textColor" : "#FFFFFF",
-    "text" : "Onde pode estar?"
+  "INTRO_TEXT_2": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "Onde pode estar?"
   },
-  "INTRO_TEXT_3" : {
-    "targetType" : "player",
-    "characterName" : "",
-    "textColor" : "#FFFFFF",
-    "text" : "Ah!"
+  "INTRO_TEXT_3": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "Ah!"
   },
-  "INTRO_TEXT_4" : {
-    "targetType" : "radio",
-    "characterName" : "",
-    "textColor" : "#D71818",
-    "text" : "Fazer gargarejo com água morna, sal e vinagre te deixa imune a doenças"
+  "INTRO_TEXT_4": {
+    "targetType": "radio",
+    "characterName": "",
+    "textColor": "#D71818",
+    "text": "Fazer gargarejo com água morna, sal e vinagre te deixa imune a doenças"
   },
-  "INTRO_TEXT_5" : {
-    "targetType" : "player",
-    "characterName" : "",
-    "textColor" : "#FFFFFF",
-    "text" : "Melhor separar mais vinagre..."
+  "INTRO_TEXT_5": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "Melhor separar mais vinagre..."
   },
-  "INTRO_TEXT_6" : {
-    "targetType" : "player",
-    "characterName" : "",
-    "textColor" : "#FFFFFF",
-    "text" : "O QUE!!??"
+  "INTRO_TEXT_6": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "O QUE!!??"
   },
-  "INTRO_TEXT_7" : {
-    "targetType" : "player",
-    "characterName" : "",
-    "textColor" : "#FFFFFF",
-    "text" : "Droga..."
+  "INTRO_TEXT_7": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "Droga..."
   },
-  "INTRO_TEXT_8" : {
-    "targetType" : "player",
-    "characterName" : "",
-    "textColor" : "#FFFFFF",
-    "text" : "Humm..."
+  "INTRO_TEXT_8": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "Humm..."
   },
-  "INTRO_TEXT_9" : {
-    "targetType" : "player",
-    "characterName" : "",
-    "textColor" : "#FFFFFF",
-    "text" : "O que farei sem ele?"
+  "INTRO_TEXT_9": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "O que farei sem ele?"
   },
-  "INTRO_TEXT_10" : {
-    "targetType" : "player",
-    "characterName" : "",
-    "textColor" : "#FFFFFF",
-    "text" : "Preciso de baterias novas..."
+  "INTRO_TEXT_10": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "Preciso de baterias novas..."
+  },
+  "GRANNY_TEXT_1": {
+    "targetType": "granny",
+    "characterName": "",
+    "textColor": "#90F0AB",
+    "text": "Lá vem você de novo..."
+  },
+  "GRANNY_TEXT_2": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "Do quê esta falando? Eu nunca a vi por aqui.."
+  },
+  "GRANNY_TEXT_3": {
+    "targetType": "granny",
+    "characterName": "",
+    "textColor": "#90F0AB",
+    "text": "É claro que não. Você só da atenção a esse seu rádio. Mas... Seria esse o fim dos tempos? Você finalmente me notou! Que surpresa!!"
+  },
+  "GRANNY_TEXT_4": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "Há! A senhora é engraçada, não tenho ideia do que está falando. Mas algo terrível aconteceu, meu rádio pifou! Você não teria alguma bateria?"
+  },
+  "GRANNY_TEXT_5": {
+    "targetType": "granny",
+    "characterName": "",
+    "textColor": "#90F0AB",
+    "text": "Hummm então foi isso.... Aqui, tome"
+  },
+  "GRANNY_TEXT_6": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "Eu... Eu não tenho como pegar isso"
+  },
+  "GRANNY_TEXT_7": {
+    "targetType": "granny",
+    "characterName": "",
+    "textColor": "#90F0AB",
+    "text": "Eu tenho algo que vai te ajudar, mas eu preciso dessa lamparina..."
+  },
+  "GRANNY_TEXT_8": {
+    "targetType": "granny",
+    "characterName": "",
+    "textColor": "#90F0AB",
+    "text": "Assim é bem melhor não meu querido?"
+  },
+  "GRANNY_TEXT_9": {
+    "targetType": "granny",
+    "characterName": "",
+    "textColor": "#90F0AB",
+    "text": "Tome"
+  },
+  "GRANNY_TEXT_10": {
+    "targetType": "granny",
+    "characterName": "",
+    "textColor": "#90F0AB",
+    "text": "Embora você não precisa disso..."
+  },
+  "GRANNY_TEXT_11": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "Que? Velha doida..."
+  },
+  "FAIRY_MEETING_1": {
+    "targetType": "fairy",
+    "characterName": "",
+    "textColor": "#90F0FF",
+    "text": "Você gosta mesmo desse rádio..."
+  },
+  "FAIRY_MEETING_2": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "Aahh! Agora sim!"
+  },
+  "FAIRY_MEETING_3": {
+    "targetType": "radio",
+    "characterName": "",
+    "textColor": "#D71818",
+    "text": "Novo vírus de extrema letalidade identificado, morcegos são os culpados. Não coma sua carne, mate todos eles!!"
+  },
+  "FAIRY_MEETING_4": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "!!!"
+  },
+  "FAIRY_MEETING_5": {
+    "targetType": "player",
+    "characterName": "",
+    "textColor": "#FFFFFF",
+    "text": "Vamos todos morrer!!"
+  },
+  "FAIRY_MEETING_6": {
+    "targetType": "fairy",
+    "characterName": "",
+    "textColor": "#90F0FF",
+    "text": "Cuidado, não é bem assim..."
   }
 }

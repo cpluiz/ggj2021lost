@@ -16,8 +16,11 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: d358bcd2b937386459f283d2cbf72582, type: 3}
   itemObject: {fileID: 889339228329042943}
   isUnique: 1
-  isQuestItem: 0
   destroyOnUse: 0
+  alwaysNotice: 1
+  canHoldWithRadio: 1
+  dualHanded: 0
+  limitUses: -1
   batteryPercentage: 0
 --- !u!1001 &7903191544017435678
 PrefabInstance:
@@ -26,6 +29,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.9246154
+      objectReference: {fileID: 0}
+    - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.0092307
+      objectReference: {fileID: 0}
+    - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.008125842
+      objectReference: {fileID: 0}
+    - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.3392542
+      objectReference: {fileID: 0}
+    - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.x
+      value: 0.49121165
+      objectReference: {fileID: 0}
+    - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.8361513
+      objectReference: {fileID: 0}
     - target: {fileID: 7060051602792046560, guid: 86fb3fb26a90adc45a6f7ce334dfe402,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x

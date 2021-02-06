@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IntroSequence
   m_EditorClassIdentifier: 
   segment:
-  - type: 0
+  - type: 3
     audio: {fileID: 0}
     textId: 
     ambienceEffect: 4
